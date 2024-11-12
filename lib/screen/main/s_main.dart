@@ -1,8 +1,10 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
+import 'package:flutter/material.dart';
+import 'package:todo_app/data/memory/todo_data_holder.dart';
+import 'package:todo_app/data/memory/vo_todo.dart';
 import 'package:todo_app/screen/main/tab/tab_item.dart';
 import 'package:todo_app/screen/main/tab/tab_navigator.dart';
 import 'package:todo_app/screen/main/write/d_write_todo.dart';
-import 'package:flutter/material.dart';
 
 import '../../common/common.dart';
 import 'w_menu_drawer.dart';
@@ -37,7 +39,7 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
   Widget build(BuildContext context) {
     return PopScope(
       canPop: isRootPage,
-      onPopInvoked: _handleBackPressed,
+      onPopInvokedWithResult: (didPop, result) => _handleBackPressed(didPop),
       child: Scaffold(
         extendBody: extendBody,
         //bottomNavigationBar 아래 영역 까지 그림

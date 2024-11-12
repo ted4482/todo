@@ -27,7 +27,7 @@ const FloatingActionButtonLocation _kDefaultFloatingActionButtonLocation =
 const FloatingActionButtonAnimator _kDefaultFloatingActionButtonAnimator =
     FloatingActionButtonAnimator.scaling;
 
-const Curve _standardBottomSheetCurve = standardEasing;
+const Curve _standardBottomSheetCurve = Easing.standard; //
 // When the top of the BottomSheet crosses this threshold, it will start to
 // shrink the FAB and show a scrim.
 const double _kBottomSheetDominatesPercentage = 0.3;
