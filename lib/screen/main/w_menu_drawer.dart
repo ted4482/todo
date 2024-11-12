@@ -1,16 +1,15 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
-import 'package:fast_app_base/screen/opensource/s_opensource.dart';
+import 'package:todo_app/common/common.dart';
+import 'package:todo_app/common/language/language.dart';
+import 'package:todo_app/common/theme/theme_util.dart';
+import 'package:todo_app/common/widget/w_mode_switch.dart';
+import 'package:todo_app/screen/dialog/d_message.dart';
+import 'package:todo_app/screen/opensource/s_opensource.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get_utils/src/extensions/string_extensions.dart';
 import 'package:simple_shadow/simple_shadow.dart';
-
-import '../../../screen/dialog/d_message.dart';
-import '../../common/common.dart';
-import '../../common/language/language.dart';
-import '../../common/theme/theme_util.dart';
-import '../../common/widget/w_mode_switch.dart';
 
 class MenuDrawer extends StatefulWidget {
   static const minHeightForScrollView = 380;
@@ -44,8 +43,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
               width: 240,
               padding: const EdgeInsets.only(top: 10),
               decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.only(
-                      topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
+                  borderRadius: const BorderRadius.only(topRight: Radius.circular(5), bottomRight: Radius.circular(5)),
                   color: context.colors.background),
               child: isSmallScreen(context)
                   ? SingleChildScrollView(
@@ -59,8 +57,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
     );
   }
 
-  bool isSmallScreen(BuildContext context) =>
-      context.deviceHeight < MenuDrawer.minHeightForScrollView;
+  bool isSmallScreen(BuildContext context) => context.deviceHeight < MenuDrawer.minHeightForScrollView;
 
   Container getMenus(BuildContext context) {
     return Container(
@@ -106,7 +103,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
             },
           ),
           const Line(),
-          isSmallScreen(context) ? const Height(10) : const EmptyExpanded(),
+          isSmallScreen(context) ? const Height(10) : spacer,
           MouseRegion(
             cursor: SystemMouseCursors.click,
             child: ModeSwitch(
@@ -132,10 +129,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
                       height: 30,
                       width: 100,
                       padding: const EdgeInsets.only(left: 15),
-                      child: '© 2023. Bansook Nam. all rights reserved.'
-                          .selectableText
-                          .size(10)
-                          .makeWithDefaultFont()),
+                      child: '© 2023. Bansook Nam. all rights reserved.'.selectableText.size(10).makeWithDefaultFont()),
                   onTap: () async {},
                 ),
               ),
@@ -201,12 +195,7 @@ class _MenuDrawerState extends State<MenuDrawer> {
         children: [
           flag(language.flagPath),
           const Width(8),
-          describeEnum(language)
-              .capitalizeFirst!
-              .text
-              .color(Theme.of(context).textTheme.bodyLarge?.color)
-              .size(12)
-              .makeWithDefaultFont(),
+          describeEnum(language).capitalizeFirst!.text.color(Theme.of(context).textTheme.bodyLarge?.color).size(12).makeWithDefaultFont(),
         ],
       ),
     );
@@ -246,12 +235,7 @@ class _MenuWidget extends StatelessWidget {
           padding: const EdgeInsets.only(left: 15, right: 20),
           child: Row(
             children: [
-              Expanded(
-                  child: text.text
-                      .textStyle(defaultFontStyle())
-                      .color(context.appColors.drawerText)
-                      .size(15)
-                      .make()),
+              Expanded(child: text.text.textStyle(defaultFontStyle()).color(context.appColors.drawerText).size(15).make()),
             ],
           ),
         ),

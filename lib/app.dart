@@ -1,6 +1,6 @@
-import 'package:fast_app_base/common/common.dart';
-import 'package:fast_app_base/common/theme/custom_theme_app.dart';
-import 'package:fast_app_base/screen/main/s_main.dart';
+import 'package:todo_app/common/common.dart';
+import 'package:todo_app/common/theme/custom_theme_app.dart';
+import 'package:todo_app/screen/main/s_main.dart';
 import 'package:flutter/material.dart';
 
 import 'common/theme/custom_theme.dart';
