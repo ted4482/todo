@@ -1,7 +1,7 @@
-import 'package:fast_app_base/common/constant/app_colors.dart';
+import 'package:todo_app/common/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
-export 'package:fast_app_base/common/constant/app_colors.dart';
+export 'package:todo_app/common/constant/app_colors.dart';
 
 typedef ColorProvider = Color Function();
 
@@ -45,4 +45,8 @@ abstract class AbstractThemeColors {
   Color get snackbarBgColor => AppColors.mediumBlue;
 
   Color get blueButtonBackground => AppColors.darkBlue;
+
+  Color get checkBoxColor => const Color(0xff108243);
+
+  Color get itemBackground => Colors.white;
 }
