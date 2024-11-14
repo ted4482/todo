@@ -1,6 +1,5 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/data/memory/todo_data_holder.dart';
 import 'package:todo_app/data/memory/vo_todo.dart';
 import 'package:todo_app/screen/main/tab/tab_item.dart';
 import 'package:todo_app/screen/main/tab/tab_navigator.dart';
@@ -53,8 +52,15 @@ class MainScreenState extends State<MainScreen> with SingleTickerProviderStateMi
           ),
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            WriteTodoDialog().show();
+          onPressed: () async {
+            final result = await WriteTodoDialog().show();
+            if (result != null && context.mounted) {
+               context.todoHolder.notifier.addTodo(Todo(
+                    id: DateTime.now().millisecondsSinceEpoch,
+                    title: result.text,
+                    dueDate: result.dateTime,
+                  ));
+            }
           },
           child: const Icon(EvaIcons.plus),
         ),
